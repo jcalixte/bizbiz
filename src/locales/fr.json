@@ -1,4 +1,7 @@
 {
-  "hello": "Bonjour le monde",
-  "toggle-lang": "Changer la langue"
+  "businessdays": "0 jour | 1 jour | {days} jours",
+  "number-of-resources": "Ressources",
+  "total-off-days": "Nombre total de congés",
+  "start-day": "Premier jour",
+  "end-day": "Dernier jour"
 }

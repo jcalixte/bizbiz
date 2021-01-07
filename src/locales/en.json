@@ -1,4 +1,7 @@
 {
-  "hello": "Hello World",
-  "toggle-lang": "Toggle lang"
+  "businessdays": "0 day | 1 day | {days} days",
+  "number-of-resources": "Number of resources",
+  "end-day": "End day",
+  "start-day": "Start day",
+  "total-off-days": "Total off days"
 }

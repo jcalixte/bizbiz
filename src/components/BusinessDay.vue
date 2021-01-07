@@ -3,7 +3,7 @@
     <form @submit.prevent class="columns">
       <div class="column">
         <div class="field">
-          <label class="label">Number of resources</label>
+          <label class="label">{{ t('number-of-resources') }}</label>
           <div class="control">
             <input
               class="input"
@@ -16,7 +16,7 @@
       </div>
       <div class="column">
         <div class="field">
-          <label class="label">Total off days</label>
+          <label class="label">{{ t('total-off-days') }}</label>
           <div class="control">
             <input
               class="input"
@@ -29,7 +29,7 @@
       </div>
       <div class="column">
         <div class="field">
-          <label class="label">Start day</label>
+          <label class="label">{{ t('start-day') }}</label>
           <div class="control">
             <input class="input" type="date" v-model="minDate" />
           </div>
@@ -37,14 +37,16 @@
       </div>
       <div class="column">
         <div class="field">
-          <label class="label">End day</label>
+          <label class="label">{{ t('end-day') }}</label>
           <div class="control">
             <input class="input" type="date" v-model="maxDate" />
           </div>
         </div>
       </div>
     </form>
-    <section class="result">{{ businessDays }} jours</section>
+    <section class="result">
+      {{ t('businessdays', businessDays, { named: { days: businessDays } }) }}
+    </section>
   </div>
 </template>
 
@@ -52,10 +54,12 @@
 import { computed, defineComponent, ref } from 'vue'
 import { format } from 'date-fns'
 import { businessDayService } from '@/services/businessDay.service'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'BusinessDay',
   setup() {
+    const { t } = useI18n()
     const now = format(new Date(), 'yyyy-MM-dd')
     const minDate = ref(now)
     const maxDate = ref(now)
@@ -77,7 +81,8 @@ export default defineComponent({
       maxDate,
       resources,
       offDays,
-      businessDays
+      businessDays,
+      t
     }
   }
 })
