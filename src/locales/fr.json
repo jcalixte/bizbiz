@@ -1,7 +1,9 @@
 {
   "businessdays": "0 jour | 1 jour | {days} jours",
   "number-of-resources": "Ressources",
-  "total-off-days": "Nombre total de congés",
+  "total-off-days": "Congés",
   "start-day": "Premier jour",
-  "end-day": "Dernier jour"
+  "end-day": "Dernier jour",
+  "productivity": "Productivité",
+  "total-tickets": "environ {totalTickets} tickets"
 }

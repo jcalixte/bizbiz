@@ -16,6 +16,20 @@
       </div>
       <div class="column">
         <div class="field">
+          <label class="label">{{ t('productivity') }}</label>
+          <div class="control">
+            <input
+              class="input"
+              type="number"
+              v-model.number="productivity"
+              min="0"
+              step="0.1"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="field">
           <label class="label">{{ t('total-off-days') }}</label>
           <div class="control">
             <input
@@ -44,26 +58,35 @@
         </div>
       </div>
     </form>
-    <section class="result">
-      {{ t('businessdays', businessDays, { named: { days: businessDays } }) }}
-    </section>
   </div>
+  <section class="result">
+    <result-productivity
+      :business-days="businessDays"
+      :total-tickets="totalTickets"
+    />
+  </section>
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, ref } from 'vue'
-import { format } from 'date-fns'
+import { addMonths, format } from 'date-fns'
 import { businessDayService } from '@/services/businessDay.service'
 import { useI18n } from 'vue-i18n'
+import ResultProductivity from './ResultProductivity.vue'
+
+const INPUT_FORMAT = 'yyyy-MM-dd'
 
 export default defineComponent({
+  components: { ResultProductivity },
   name: 'BusinessDay',
   setup() {
     const { t } = useI18n()
-    const now = format(new Date(), 'yyyy-MM-dd')
+    const now = format(new Date(), INPUT_FORMAT)
+    const inOneMonth = format(addMonths(new Date(), 1), INPUT_FORMAT)
     const minDate = ref(now)
-    const maxDate = ref(now)
+    const maxDate = ref(inOneMonth)
     const resources = ref(1)
+    const productivity = ref(1)
     const offDays = ref(0)
 
     const businessDays = computed(() => {
@@ -76,12 +99,18 @@ export default defineComponent({
       return daysBetween
     })
 
+    const totalTickets = computed(() =>
+      Math.trunc(productivity.value * businessDays.value)
+    )
+
     return {
       minDate,
       maxDate,
       resources,
+      productivity,
       offDays,
       businessDays,
+      totalTickets,
       t
     }
   }
@@ -89,6 +118,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.business-day {
+input {
+  min-width: 100px;
+}
+
+.result {
+  margin-top: 2rem;
+  font-size: 40px;
 }
 </style>

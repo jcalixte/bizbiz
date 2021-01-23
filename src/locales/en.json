@@ -1,7 +1,9 @@
 {
   "businessdays": "0 day | 1 day | {days} days",
-  "number-of-resources": "Number of resources",
+  "number-of-resources": "Resources",
   "end-day": "End day",
   "start-day": "Start day",
-  "total-off-days": "Total off days"
+  "total-off-days": "Off days",
+  "productivity": "Productivity",
+  "total-tickets": "so about {totalTickets} tickets"
 }
