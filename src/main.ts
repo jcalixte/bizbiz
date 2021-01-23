@@ -7,7 +7,7 @@ import { messages } from '@/locales/message'
 import { router } from '@/router/router'
 
 const i18n = createI18n({
-  locale: 'en',
+  locale: 'fr',
   messages
 })
 

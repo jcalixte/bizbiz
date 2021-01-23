@@ -1,5 +1,5 @@
 {
-  "businessdays": "0 day | 1 day | {days} days",
+  "businessdays": "0 person/day | 1 person/day | {days} person/days",
   "number-of-resources": "Resources",
   "end-day": "End day",
   "start-day": "Start day",
