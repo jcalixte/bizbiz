@@ -119,7 +119,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 input {
-  min-width: 100px;
+  width: 150px;
 }
 
 .result {
