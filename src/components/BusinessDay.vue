@@ -1,4 +1,10 @@
 <template>
+  <section class="result">
+    <result-productivity
+      :business-days="businessDays"
+      :total-tickets="totalTickets"
+    />
+  </section>
   <div class="business-day">
     <form @submit.prevent class="columns">
       <div class="column">
@@ -119,7 +125,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 input {
-  width: 150px;
+  width: 200px;
 }
 
 .result {
