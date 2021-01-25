@@ -1,6 +1,6 @@
 <template>
   <div class="result-productivity">
-    {{ t('businessdays', businessDays, { named: { days: businessDays } }) }},
+    {{ t('businessdays', businessDays, { named: { days: businessDays } }) }}
     {{
       t('total-tickets', totalTickets, {
         named: { totalTickets: totalTickets }
