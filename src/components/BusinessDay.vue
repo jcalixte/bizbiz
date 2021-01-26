@@ -137,7 +137,6 @@ input {
 }
 
 .result {
-  margin-top: 2rem;
   font-size: 40px;
 }
 </style>
