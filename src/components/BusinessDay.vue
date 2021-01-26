@@ -74,26 +74,24 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
-import { addMonths, format } from 'date-fns'
+import { computed, defineComponent } from 'vue'
+import { useBusinessDay } from './useBusinessDay.hook'
 import { businessDayService } from '@/services/businessDay.service'
 import { useI18n } from 'vue-i18n'
 import ResultProductivity from './ResultProductivity.vue'
-
-const INPUT_FORMAT = 'yyyy-MM-dd'
 
 export default defineComponent({
   components: { ResultProductivity },
   name: 'BusinessDay',
   setup() {
     const { t } = useI18n()
-    const now = format(new Date(), INPUT_FORMAT)
-    const inOneMonth = format(addMonths(new Date(), 1), INPUT_FORMAT)
-    const minDate = ref(now)
-    const maxDate = ref(inOneMonth)
-    const resources = ref(1)
-    const productivity = ref(1)
-    const offDays = ref(0)
+    const {
+      minDate,
+      maxDate,
+      resources,
+      productivity,
+      offDays
+    } = useBusinessDay()
 
     const businessDays = computed(() => {
       const daysBetween = businessDayService.count(
