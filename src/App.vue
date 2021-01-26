@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <router-view />
   </div>
 </template>
@@ -15,7 +15,7 @@ export default defineComponent({
 <style lang="scss">
 @import 'styles/app';
 
-#app {
+.app {
   display: flex;
   justify-content: center;
   align-items: center;

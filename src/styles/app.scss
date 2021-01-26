@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Overlock&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import '~bulma/bulma.sass';
 
 $color: #f1f2f6;
@@ -9,11 +9,16 @@ body {
   text-align: center;
   min-height: 100vh;
   overflow-y: auto;
-  font-family: 'Overlock', cursive;
+  font-family: 'Noto Sans JP', sans-serif;
   background-color: #341f97;
   color: $color;
 }
 
 label.label {
   color: $color;
+}
+
+.columns {
+  margin-left: 0;
+  margin-right: 0;
 }

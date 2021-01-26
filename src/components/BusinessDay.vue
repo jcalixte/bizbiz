@@ -1,12 +1,12 @@
 <template>
-  <section class="result">
-    <result-productivity
-      :business-days="businessDays"
-      :total-tickets="totalTickets"
-    />
-  </section>
   <div class="business-day">
-    <form @submit.prevent class="columns">
+    <section class="result">
+      <result-productivity
+        :business-days="businessDays"
+        :total-tickets="totalTickets"
+      />
+    </section>
+    <form @submit.prevent class="columns is-multiline">
       <div class="column">
         <div class="field">
           <label class="label">{{ t('number-of-resources') }}</label>
@@ -64,13 +64,13 @@
         </div>
       </div>
     </form>
+    <section class="result">
+      <result-productivity
+        :business-days="businessDays"
+        :total-tickets="totalTickets"
+      />
+    </section>
   </div>
-  <section class="result">
-    <result-productivity
-      :business-days="businessDays"
-      :total-tickets="totalTickets"
-    />
-  </section>
 </template>
 
 <script lang="ts">
@@ -124,6 +124,16 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.business-day {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+}
+
 input {
   width: 200px;
 }
